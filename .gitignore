@@ -17,3 +17,6 @@
 
 # Idea Files
 .idea/
+
+# Ignore Dirs
+out/
