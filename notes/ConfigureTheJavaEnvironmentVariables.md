@@ -8,7 +8,7 @@
 
 4.在【系统变量】中找到CLASSPATH，没有到话就新建。变量名为CLASSPATH，变量值为【.;%JAVA_HOME%\lib\dt.jar;%JAVA_HOME%\lib\tools.jar;】，注意这里一个符号都不能少。
 
-5.在【系统变量】中找到Path，在Path变量的最后添加值【;%JAVA_HOME%\bin;%JAVA_HOME%\jre\bin;】，这里需注意前后用分号隔开。
+5.在【系统变量】中找到Path，在Path变量的最后添加值【;%JAVA_HOME%\bin;%JAVA_HOME%\jre\bin;】，这里需注意前后用分号隔开。Win10新版系统需要分别添加【%JAVA_HOME%\bin】与%【%JAVA_HOME%\jre\bin】。
 
 6.完成后点击确定按钮保存配置。
 
