@@ -19,7 +19,7 @@
 - 对象变量中保存的是对象的引用，二不是实际的对象。  
 - 对实例域做出修改的方法称为更改器方法（mutator method），仅访问实例域而不进行修改的方法称为访问器方法（accessor method）。  
 
-#4.3 Defining Your Own Classes  
+###4.3 Defining Your Own Classes  
 - 使用public标记类的实例域是一种极不提倡的做法，因为这完全破坏了封装。  
 - 关于类的构造器：  
   1.构造器与类同名  
@@ -36,8 +36,12 @@
 - 如果一个类的所有方法都不会改变其对象，这种类就是不可变的类，如String类。  
 - final修饰符大多用于基本类型或不可变类，修饰可变类时不可变的只是这个类的引用。
 
-#4.4 Static Fields and Methods  
+###4.4 Static Fields and Methods  
 - 定义为static的域将在这个类的所有对象间共享，它属于类而不属于任何独立的对象。  
 - 静态变量一般使用较少，静态常量（static final）使用较多。  
 - 静态方法不能调用实例域，一般使用类名来调用静态方法。
+
+###4.5 Method Parameters  
+- 按值调用（call by value）表示方法接收的是调用者提供的值。而按引用调用（call by reference）表示方法接收的是调用者提供的变量地址。  
+- Java在传递参数时总是采用按值调用。
 

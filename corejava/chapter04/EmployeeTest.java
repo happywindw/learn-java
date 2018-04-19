@@ -28,6 +28,11 @@ class Employee {
     private double salary;
     private Date hireDay;
 
+    public Employee(String n, double s) {
+        name = n;
+        salary = s;
+    }
+
     public Employee(String n, double s, int year, int month, int day) {
         name = n;
         salary = s;
