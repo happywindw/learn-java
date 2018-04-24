@@ -1,4 +1,4 @@
-package chapter05;
+package chapter05.inheritance;
 
 public class Manager extends Employee {
     private double bonus;
