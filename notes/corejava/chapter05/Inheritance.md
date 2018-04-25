@@ -29,3 +29,33 @@
   2. public —— 对所有类可见；  
   3. protected —— 对本包和子类可见；  
   4. 不加修饰符 —— 对本包可见。
+
+###5.2 Object: The Cosmic Superclass  
+- Object类是Java中所有类的始祖。可以使用Object类型的变量引用任何类型的对象。  
+- Object类提供的equals方法会比较两个对象的引用是否相同。实际上我们往往将两个状态相同的对象认为是相等的，这时就需要覆写这个方法。  
+- Java规范要求equals方法具有下面的特性：  
+  1. 自反性：对于任何非空引用x，x.equals(x)应该返回true。  
+  2. 对称性：对于任何引用x和y，当且仅当y.equals(x)返回true，x.equals(y)也应该返回true。  
+  3. 传递性：对于任何引用x、y和z，如果x.equals(y)返回true，y.equals(z)返回true，x.equals(z)也应返回true。  
+  4. 一致性：如果x和y引用的对象没有发生变化，反复调用x.equals(y)应该返回同样的结果。  
+  5. 对于任意非空引用x，x.equals(null)应该返回false。  
+- 对比两个可能为null的对象时，应该使用Objects.equals(a, b)方法。a==b==null时，返回true，其中一个为null时返回false。都不为null时返回a.equals(b)。  
+- 子类的equals方法应该首先调用父类的equals方法。  
+- equals方法中getClass()方法与instanceof运算的选择：  
+  1. 如果子类拥有自己的equals方法，则根据对称性要求应采用getClass进行检测。  
+  2. 如果由超类决定两个对象是否相等，那么就可以使用instanceof进行检测，同时超类的equals方法应声明为final型。  
+- 编写一个完美的equals方法：  
+  1. 显示参数命名为otherObject，稍后需将它转换成另一个名为other的变量。  
+  2. 检测this与otherObject是否引用同一个对象。
+  3. 检测otherObject是否为null，为null就返回false。
+  4. 比较this与otherObject是否属于同一个类。每个子类都有不同的equals时，就用getClass检测。子类都使用父类的equals方法时就使用instanceof检测。  
+  5. 将otherObject转换为相应的类类型变量。
+  6. 比较域是否相等，使用==比较基本类型，使用Objects.equals()方法比较对象，数组对象使用静态方法Array.equals()。  
+- 注意自己编写的equals方法的显示参数应该声明为Object类型，这样才能覆盖Object类的equals方法。同时应使用@Override标记该方法。  
+- 散列码（hash code）是由对象导出的一个整形值。散列码是没有规律的。  
+- 如果重新定义equals方法，就必须重新定义hashCode方法，以便用户可以将对象插入到散列表中。  
+- hashCode方法应该返回一个整形数值（可以是负数），并合理地组合实例域的散列码，以便能够让各个不同的对象产生的散列码更加均匀。  
+- 两个相等的对象必须返回相等的散列码，所以equals方法与hashCode方法必须一致。若equals仅使用ID判定相等，则hashCode同样仅散列ID，而不是对象域的其他值。  
+- int Objects.hash(Object... Object)方法返回多个对象组合成的散列码；static Objects.hashCode(a)方法返回对象a的hash code，当a为null时返回0；数组可以使用静态方法Arrays.hashCode()得到对应的散列码。  
+- 绝大多数类的toString方法返回值的格式： classname[field1:xxx, field2:xxx, ..., fieldn:xxx]  
+- 子类的toString方法应首先调用父类的toString方法（如果有），再补充子类多出的部分。
