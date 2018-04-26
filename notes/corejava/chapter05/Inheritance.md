@@ -59,3 +59,12 @@
 - int Objects.hash(Object... Object)方法返回多个对象组合成的散列码；static Objects.hashCode(a)方法返回对象a的hash code，当a为null时返回0；数组可以使用静态方法Arrays.hashCode()得到对应的散列码。  
 - 绝大多数类的toString方法返回值的格式： classname[field1:xxx, field2:xxx, ..., fieldn:xxx]  
 - 子类的toString方法应首先调用父类的toString方法（如果有），再补充子类多出的部分。
+
+###5.3 Generic Array Lists  
+- ArrayList是一个采用类型参数（type parameter）的泛型类（generic class）。  
+- ArrarList管理这对象引用的一个内部数组，当内部数组已满后会自动扩容，扩容方式是将所有对象从较小的数组拷贝到较大的数组中。  
+- 若大概能确定数组的容量，可以使用ensureCapacity()方法，这样可以减少重新分配空间的次数。  
+- 一旦确定了ArrayList对象的长度不会再发生变化，就可以调用trimToSize()方法。此方法将调整数组大小为当前所需的大小，多余的存储空间将被垃圾回收器回收。  
+- 向数组中插入一个元素时，该元素之后的元素都要向后移动一个位置。若插入元素时数组列表的大小超了容量，就会自动重分配空间。  
+- 删除时与插入相反，该元素之后的元素都要前移一个位置。插入与删除操作的效率都比较低。  
+- 若经常在数组中间插入或删除元素且数组长度较大，应使用链表而非数组列表。
