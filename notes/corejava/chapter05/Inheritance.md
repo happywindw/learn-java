@@ -77,3 +77,10 @@
 - 将基本类型转换为包装器类型称为自动装箱（autoboxing），反过来称为自动拆箱。  
 - Java规定对包装器类的比较时，若对应基本类型的值相同，就认为相等。  
 - 装箱与拆箱是编译器认可的，不是虚拟机。编译器在生成类的字节码时会自动插入必要的方法调用，虚拟机只是执行这些字节码。  
+
+###5.5 Methods with a Variable Number of Parameters  
+- JAVA中部分方法的参数数量是可变的，可变的部分实际相当于传入了一个数组。
+
+###5.6 Enumeration Classes  
+- 枚举类型（public enum Size{SMALL, MEDIUM, LARGE, EXTRA_LARGE}）实际声明的是一个类，它是Enum类的子类。  
+- 如果需要的话，可以在枚举类型中添加一些构造器、方法和域。
