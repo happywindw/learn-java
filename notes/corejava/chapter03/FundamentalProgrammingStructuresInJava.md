@@ -1,5 +1,4 @@
-# chapter 3: Fundamental Programming Structures in Java
-
+# Chapter 3: Fundamental Programming Structures in Java
 ### 3.1 A Sample Java Program  
 - 类名的命名规范是驼峰式风格。  
 - 源文件的文件名必须与公共类的类名相同，并用.java作扩展名。  
